@@ -21,6 +21,7 @@ import {
   ID_OPTIMISTIC_PREFIX,
   SCHEMA_GRID_EVENT_DEFAULT_POSITION,
 } from "../constants/web.constants";
+import { DATA_EVENT_ELEMENT_ID } from "@web/views/Calendar/layout.constants";
 
 dayjs.extend(isSameOrAfter);
 dayjs.extend(isSameOrBefore);
@@ -340,4 +341,9 @@ export const adjustEvents = (
   const adjustedEvents = adjustOverlappingEvents(events);
 
   return adjustedEvents;
+};
+
+export const getCalendarEventIdFromElement = (element: HTMLElement) => {
+  const id = element.getAttribute(DATA_EVENT_ELEMENT_ID);
+  return id;
 };
